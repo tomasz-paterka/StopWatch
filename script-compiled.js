@@ -71,6 +71,16 @@ var Stopwatch = function () {
 			this.running = false;
 			clearInterval(this.watch);
 		}
+	}, {
+		key: 'resetTimer',
+		value: function resetTimer() {
+			this.times = {
+				minutes: 0,
+				seconds: 0,
+				miliseconds: 0
+			};
+			this.display.innerText = this.format(this.times);
+		}
 	}]);
 
 	return Stopwatch;
@@ -94,4 +104,9 @@ startButton.addEventListener('click', function () {
 var stopButton = document.getElementById('stop');
 stopButton.addEventListener('click', function () {
 	return stopwatch.stop();
+});
+
+var resetButton = document.getElementById('reset');
+resetButton.addEventListener('click', function () {
+	return stopwatch.resetTimer();
 });

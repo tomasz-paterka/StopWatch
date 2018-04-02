@@ -51,6 +51,15 @@ class Stopwatch {
 		this.running = false;
 		clearInterval(this.watch);
 	}
+	
+	resetTimer() {
+		this.times = {
+			minutes: 0,
+			seconds: 0,
+			miliseconds: 0
+		};
+		this.display.innerText = this.format(this.times);
+	}
 }
 
 function pad0(value) {
@@ -69,3 +78,6 @@ startButton.addEventListener('click', () => stopwatch.start());
 
 let stopButton = document.getElementById('stop');
 stopButton.addEventListener('click', () => stopwatch.stop());
+
+let resetButton = document.getElementById('reset');
+resetButton.addEventListener('click', () => stopwatch.resetTimer());
